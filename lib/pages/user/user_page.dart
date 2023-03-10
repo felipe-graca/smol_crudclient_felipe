@@ -66,7 +66,7 @@ class _UserPageState extends State<UserPage> {
                       context: context,
                     );
                   },
-                  onBackTap: () => Navigator.of(context).pop(true),
+                  onBackTap: () => navigator.pop(),
                 ),
                 const SizedBox(height: 20),
                 Expanded(
@@ -237,16 +237,16 @@ class _UserPageState extends State<UserPage> {
                           label: 'SALVAR',
                           onTap: () async {
                             if (await userCubit.submit()) {
-                              if (state.currentUser != null) {
-                                if (!mounted) return;
-                                CustomSnackBar.show(
-                                  text: userCubit.successesMessage,
-                                  status: CustomSnackbarStatus.success,
-                                  context: context,
-                                );
+                              if (state.currentUser == null) {
+                                navigator.pop(true);
                                 return;
                               }
-                              navigator.pop(true);
+                              if (!mounted) return;
+                              CustomSnackBar.show(
+                                text: userCubit.successesMessage,
+                                status: CustomSnackbarStatus.success,
+                                context: context,
+                              );
                               return;
                             }
                             if (!mounted) return;

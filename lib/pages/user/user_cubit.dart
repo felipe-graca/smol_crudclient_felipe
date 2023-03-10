@@ -7,8 +7,6 @@ import 'package:smol_crudclient_felipe/core/domain/models/form/radio_validator.d
 import 'package:smol_crudclient_felipe/core/domain/repository/user/user_repository_interface.dart';
 import 'package:smol_crudclient_felipe/core/errors/crud_errors.dart';
 import 'package:smol_crudclient_felipe/core/helpers/app_ui.dart';
-import 'package:smol_crudclient_felipe/core/routes/app_router.dart';
-import 'package:smol_crudclient_felipe/ui/widgets/custom_snackbar.dart';
 
 import '../../core/domain/models/form/email_validator.dart';
 import '../../core/domain/models/form/text_validator.dart';
@@ -114,13 +112,9 @@ class UserCubit extends Cubit<UserState> {
 
       if (state.currentUser == null) {
         await userRepository.createUser(user);
-        AppUI.snackbarsToDisplayWhenStart.add(SnackbarToDisplayModel(
-          text: 'Usuário criado com sucesso!',
-          status: CustomSnackbarStatus.success,
-          page: AppRoutes.users,
-        ));
       } else {
         await userRepository.updateUser(user);
+
         emit(
           state.copyWith(successesMessage: 'Usuário atualizado com sucesso!'),
         );

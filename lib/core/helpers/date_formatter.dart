@@ -20,24 +20,13 @@ class DateFormatter extends TextInputFormatter {
       formattedText = cleanedText;
     }
 
+    if (formattedText.length > 10) {
+      formattedText = formattedText.substring(0, 10);
+    }
+
     return TextEditingValue(
       text: formattedText,
       selection: TextSelection.collapsed(offset: formattedText.length),
     );
-  }
-
-  String formatInitialValue(String? initialValue) {
-    if (initialValue == null || initialValue.isEmpty) {
-      return '';
-    }
-
-    // Remove non-digit characters from the initial value
-    String cleanedValue = initialValue.replaceAll(RegExp(r'[^\d]'), '');
-
-    // Format the cleaned value using the formatEditUpdate method
-    TextEditingValue value = formatEditUpdate(
-        TextEditingValue.empty, TextEditingValue(text: cleanedValue));
-
-    return value.text;
   }
 }

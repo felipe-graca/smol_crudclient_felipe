@@ -93,6 +93,8 @@ class AppUI {
 
   static String convertDateToService(String inputDate) {
     // Split the input date into day, month, and year components
+    if (inputDate.contains('-')) return inputDate;
+
     List<String> components = inputDate.split('/');
 
     // Rearrange the components into the desired format

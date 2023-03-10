@@ -28,15 +28,10 @@ class UserRepository implements IUserRepository {
   @override
   Future<void> deleteUser(int id) async {
     try {
-      final response =
-          await httpService.delete('${ServiceHelper.urlServer}$id/');
-    } catch (e) {}
-  }
-
-  @override
-  Future<UserModel> getUser(int id) {
-    // TODO: implement updateUser
-    throw UnimplementedError();
+      await httpService.delete('${ServiceHelper.urlServer}$id/');
+    } on DioError catch (_) {
+      throw DeleteUserFailure();
+    }
   }
 
   @override

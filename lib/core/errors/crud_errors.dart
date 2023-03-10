@@ -1,3 +1,5 @@
+// ignore_for_file: overridden_fields
+
 class SmolExeption implements Exception {
   final String message;
   SmolExeption([
@@ -44,6 +46,16 @@ class UpdateUserFailure extends SmolExeption {
       '$preFixMessage. Por favor, verifique os dados e tente novamente.',
     );
   }
+}
+
+class DeleteUserFailure extends SmolExeption {
+  @override
+  final String message;
+
+  DeleteUserFailure([
+    this.message =
+        'Ocorreu um erro. Por favor, verifique sua conexão e tente novamente.',
+  ]);
 }
 
 class CreateAccountFailure extends SmolExeption {
