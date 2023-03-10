@@ -117,12 +117,18 @@ class _UsersPageState extends State<UsersPage> {
                                 name: user.name!,
                                 email: user.email!,
                                 phoneNumber: user.phoneNumber!,
-                                onTap: () => Navigator.of(context).pushNamed(
-                                  AppRoutes.user,
-                                  arguments: {
-                                    'user': user,
-                                  },
-                                ),
+                                onTap: () async {
+                                  final result =
+                                      await Navigator.of(context).pushNamed(
+                                    AppRoutes.user,
+                                    arguments: {
+                                      'user': user,
+                                    },
+                                  );
+                                  if (result == true) {
+                                    await usersCubit.getUsers();
+                                  }
+                                },
                               ),
                             ),
                             const SizedBox(height: 20),

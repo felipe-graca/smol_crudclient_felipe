@@ -13,7 +13,7 @@ class ServiceLocator {
     //services
     i.registerLazySingleton<IHttpService>(() => HttpService());
 
-    //reposotris
+    //repositories
     i.registerLazySingleton<IUserRepository>(() => UserRepository(i.get()));
 
     //pages

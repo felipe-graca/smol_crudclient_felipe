@@ -18,18 +18,27 @@ class AppUI {
     // Remove todos os caracteres que não são dígitos
     final digitsOnly = value.replaceAll(RegExp(r'\D+'), '');
 
-    // Se não houver 10 dígitos, retorna o valor original
-    if (digitsOnly.length != 11) {
+    // Verifica se o número tem 10 ou 11 dígitos
+    if (digitsOnly.length != 10 && digitsOnly.length != 11) {
       return value;
     }
 
-    // Divide o número em área, prefixo e sufixo
-    final areaCode = digitsOnly.substring(0, 2);
-    final prefix = digitsOnly.substring(2, 6);
-    final suffix = digitsOnly.substring(6);
+    // Define a máscara de acordo com o tamanho do número
+    final mask = digitsOnly.length == 10 ? '(##) ####-####' : '(##) #####-####';
 
-    // Retorna a string formatada
-    return '($areaCode) $prefix-$suffix';
+    // Formata o número usando a máscara
+    var maskedNumber = '';
+    var i = 0;
+    for (final char in mask.characters) {
+      if (char == '#') {
+        maskedNumber += digitsOnly[i];
+        i++;
+      } else {
+        maskedNumber += char;
+      }
+    }
+
+    return maskedNumber;
   }
 
   static String cpfFormatter(String value) {

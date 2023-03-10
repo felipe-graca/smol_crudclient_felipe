@@ -66,7 +66,8 @@ class _UserPageState extends State<UserPage> {
                       context: context,
                     );
                   },
-                  onBackTap: () => navigator.pop(),
+                  onBackTap: () =>
+                      navigator.pop(widget.user != null ? true : false),
                 ),
                 const SizedBox(height: 20),
                 Expanded(
