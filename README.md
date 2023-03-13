@@ -1,16 +1,20 @@
-# smol_crudclient_felipe
+<h1 align="center"> Smol Crud de clientes </h1>
 
-A new Flutter project.
+Para executar o projeto, basta cloná-lo em sua máquina e executar os seguintes comandos:
 
-## Getting Started
+```
+flutter pub get
+```
 
-This project is a starting point for a Flutter application.
+e logo após
 
-A few resources to get you started if this is your first Flutter project:
+```
+flutter run
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Feedback de desenvolvimento
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+• Não foi encontrada nenhuma dificuldade aparente durante todo o processo de desenvolvimento do projeto em questão.
+• Algumas dicas que, no caso, acredito que fariam muito sentido seriam em relação ao Figma. Acredito que o tempo de desenvolvimento poderia ser reduzido significativamente se fossem criados padrões para alguns parâmetros, como sombras, espaçamentos, tipografia, botões e outros elementos.
+
+### Projeto desenvolvido em 1 dia e meio pausadamento
